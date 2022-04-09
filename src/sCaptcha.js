@@ -2,8 +2,8 @@ var sCaptcha = {
   id: "sCaptcha",
 
   sCaptcha__icon: `<div class="sCaptcha__icon"></div>`,
-  sCaptcha__button: `<div class="sCaptcha__button"></div>`,
-  sCaptcha__text: `<div onClick="${this.id}.captchaAction" class="sCaptcha__text"></div>`,
+  sCaptcha__button: `<div class="sCaptcha__button">verify my identity</div>`,
+  sCaptcha__text: `<div onClick="${this.id}.captchaAction" class="sCaptcha__text">Verify I am not a robot</div>`,
 
   captchaAction() {
     console.log("hello, from action!");

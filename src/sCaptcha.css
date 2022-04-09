@@ -1,0 +1,29 @@
+#sCaptcha {
+  max-width: 500px;
+  width: 100%;
+  min-width: 400px;
+
+  display: flex;
+  align-items: center;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#sCaptcha .sCaptcha__text {
+  width: 100%;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+#sCaptcha .sCaptcha__button {
+  width: 100%;
+  background: #ddd;
+  font-weight: bold;
+
+  border-radius: 2px;
+  padding: 4px 10px 4px 10px; /* TODO: add this values to :root */
+
+  cursor: pointer;
+
+  /* TODO: change background in dark mode */
+}
