@@ -3,9 +3,11 @@ var sCaptcha = {
 
   sCaptcha__icon: `<div class="sCaptcha__icon"></div>`,
   sCaptcha__button: `<div class="sCaptcha__button"></div>`,
-  sCaptcha__text: `<div class="sCaptcha__text"></div>`,
+  sCaptcha__text: `<div onClick="${this.id}.captchaAction" class="sCaptcha__text"></div>`,
 
-  captchaAction() {},
+  captchaAction() {
+    console.log("hello, from action!");
+  },
 
   captchaElement() {
     return `
