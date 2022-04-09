@@ -1,1 +1,7 @@
-sCaptcha = {};
+var sCaptcha = {
+  captchaAction: () => {},
+
+  captchaElement: () => {},
+
+  generateCaptcha: () => {}
+};
