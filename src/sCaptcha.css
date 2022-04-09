@@ -27,3 +27,8 @@
 
   /* TODO: change background in dark mode */
 }
+
+#sCaptcha .sCaptcha__icon {
+  width: 50px;
+  margin-right: 15px;
+}
