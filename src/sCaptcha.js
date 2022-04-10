@@ -63,6 +63,9 @@ sCaptcha.prototype.verify = function (captcha, elem) {
   // TODO: do actual verification
   elem.innerHTML = this.captchaElementLoading(captcha, 25);
 
+  for(let i=parseInt("aaaa", 36);i++<=parseInt("zzzzzz", 36); i++) {
+    console.log(i.toString(36))
+  }
 
   // Clean
   elem.innerHTML = this.captchaElementLoading(captcha, 100)
