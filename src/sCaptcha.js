@@ -5,7 +5,28 @@ document.currentScript =
     return scripts[scripts.length - 1];
   })();
 
-function sCaptcha() {}
+var sCaptchaClones = {};
+
+function sCaptchaGenNewID() {
+  var newID = "";
+  var characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < 20; i++) {
+    newID += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  if (newID in sCaptchaClones) {
+    return sCaptchaGenNewID();
+  }
+
+  return newID;
+}
+
+function sCaptcha() {
+  this.sCaptcha__ID = sCaptchaGenNewID();
+  sCaptchaClones[this.sCaptcha__ID] = this;
+}
 
 sCaptcha.prototype.id = "sCaptcha";
 
@@ -32,18 +53,33 @@ sCaptcha.prototype.sCaptcha__button = function () {
 sCaptcha.prototype.sCaptcha__text = function () {
   return `<div class="sCaptcha__text">Verify I am not a robot</div>`;
 };
+sCaptcha.prototype.sCaptcha__loading = function () {
+  return `<div class="sCaptcha__loading"><div class="sCaptcha__progress"></div></div>`;
+};
 
 sCaptcha.prototype.verify = function () {
   // TODO: do actual verification
 };
 
-sCaptcha.prototype.captchaAction = function () {
-  let newCaptcha = new sCaptcha();
+sCaptcha.prototype.captchaAction = function (id) {
+  let captcha = sCaptchaClones[id];
+  let elem = document.getElementsByClassName(`${captcha.id}_${id}`);
+};
+
+sCaptcha.prototype.captchaElementLoading = function (captcha) {
+  return `
+      <div class="${captcha.id} ${captcha.id}_${captcha.sCaptcha__ID}">
+        ${captcha.sCaptcha__icon_2()}
+        <div class="sCaptcha__wrapper">
+          ${captcha.sCaptcha__text()}
+          ${captcha.sCaptcha__loading()}
+        </div>
+      </div>`;
 };
 
 sCaptcha.prototype.captchaElement = function () {
   return `
-      <div id="${this.id}">
+    <div class="${this.id} ${this.id}_${this.sCaptcha__ID}">
         ${this.sCaptcha__icon_1()}
         <div class="sCaptcha__wrapper">
           ${this.sCaptcha__text()}

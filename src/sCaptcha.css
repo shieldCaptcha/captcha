@@ -1,4 +1,4 @@
-#sCaptcha {
+.sCaptcha {
   max-width: 500px;
   width: 100%;
   min-width: 400px;
@@ -9,13 +9,13 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#sCaptcha .sCaptcha__text {
+.sCaptcha .sCaptcha__text {
   width: 100%;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-#sCaptcha .sCaptcha__button {
+.sCaptcha .sCaptcha__button {
   width: 100%;
   background: #ddd;
   font-weight: bold;
@@ -28,7 +28,7 @@
   /* TODO: change background in dark mode */
 }
 
-#sCaptcha .sCaptcha__icon {
+.sCaptcha .sCaptcha__icon {
   width: 50px;
   margin-right: 15px;
 }
