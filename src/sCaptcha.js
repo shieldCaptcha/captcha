@@ -27,14 +27,18 @@ sCaptcha.prototype.sCaptcha__icon_3 = function () {
 };
 
 sCaptcha.prototype.sCaptcha__button = function () {
-  return `<div onClick="new ${this.id}().captchaAction" class="sCaptcha__button">verify my identity</div>`;
+  return `<div onClick="new ${this.id}().captchaAction()" class="sCaptcha__button">verify my identity</div>`;
 };
 sCaptcha.prototype.sCaptcha__text = function () {
   return `<div class="sCaptcha__text">Verify I am not a robot</div>`;
 };
 
+sCaptcha.prototype.verify = function () {
+  // TODO: do actual verification
+};
+
 sCaptcha.prototype.captchaAction = function () {
-  console.log("hello, from action!");
+  let newCaptcha = new sCaptcha();
 };
 
 sCaptcha.prototype.captchaElement = function () {
