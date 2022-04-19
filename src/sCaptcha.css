@@ -1,51 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 .sCaptcha {
-  max-width: 500px;
-  width: 100%;
-  min-width: 400px;
+    max-width: 400px;
 
-  display: flex;
-  align-items: center;
+    /* height: 500px; */
+    min-width: 300px;
 
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: "Poppins", sans-serif;
+    padding: 10px 10px 30px 10px;
+
+    background: #fff;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
-.sCaptcha .sCaptcha__text {
-  width: 100%;
-  font-weight: 500;
-  margin-bottom: 5px;
+.sCaptcha h1 {
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 2px;
 }
 
-.sCaptcha .sCaptcha__button {
-  width: 100%;
-  background: #ddd;
-  font-weight: bold;
-
-  border-radius: 2px;
-  padding: 4px 10px 4px 10px; /* TODO: add this values to :root */
-
-  cursor: pointer;
-
-  /* TODO: change background in dark mode */
+.sCaptcha p {
+    text-align: center;
+    padding: 0 20px;
+    margin: 0;
+    opacity: 0.8;
+    font-size: 16px;
+    font-family: 600;
 }
 
-.sCaptcha .sCaptcha__icon {
-  width: 50px;
-  margin-right: 15px;
+.sCaptcha .secureIcon {
+    width: 50px;
+    height: 50px;
+
+    position: relative;
+
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+    margin-top: 20px;
 }
 
-.sCaptcha .sCaptcha__loading {
-  width: 100%;
-  position: relative;
-
-  background: #ddd;
-  border-radius: 2px;
-
-  height: 5px;
+.sCaptcha .secureIcon svg {
+    width: 70%;
+    height: 70%;
 }
 
-.sCaptcha .sCaptcha__progress {
-  height: 100%;
-  width: 100%; /* default value */
+.sCaptcha .cubesImage {
+    position: relative;
+    width: 100%;
+    height: 40%;
+}
 
-  background: #000;
+.sCaptcha .cubesImage svg {
+    width: 100%;
+    height: 100%;
+}
+
+.sCaptcha .captchaPuzzleWrapper {
+    width: 80%;
+    padding: 2px 10px;
+    background: #f1f3f4;
+    border-radius: 10px;
+    position: relative;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+}
+
+.sCaptcha .captchaPuzzleWrapper p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 600;
+    opacity: 0.5;
+
+    cursor: auto;
+    user-select: none;
+}
+
+.sCaptcha div .dCube {
+    width: 40px;
+    height: 40px;
+
+    background: #4558ff;
+    border-radius: 5px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+
+.sCaptcha div .dCube .rightArrow {
+    height: 20px;
+    pointer-events: none;
+}
+
+.sCaptcha div .dCube svg {
+    width: 20px;
+    height: 20px;
+
+    color: #fff;
+    margin: auto;
+    pointer-events: none;
+}
+
+.sCaptcha .captchaPuzzleWrapper div .dCube .check {
+    transform: scale(0);
+    height: 20px;
+    color: #fff;
+    display: none;
+}
+
+.sCaptcha .captchaPuzzleWrapper div .dCube.done {
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation: 1s linear sCaptcha__done forwards;
+}
+
+.sCaptcha .captchaPuzzleWrapper div .dCube.done .rightArrow {
+    display: none;
+}
+
+.sCaptcha .captchaPuzzleWrapper div .dCube.done .check {
+    display: block;
+
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation: 0.2s linear sCaptcha__check forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes sCaptcha__done {
+}
+
+@keyframes sCaptcha__check {
+    10% {
+        display: block;
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

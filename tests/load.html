@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="../src/sCaptcha.css" />
-  </head>
-  <body>
-    <script type="text/javascript" src="../src/sCaptcha.js"></script>
-  </body>
+    <head>
+        <link rel="stylesheet" href="../src/sCaptcha.css" />
+
+        <script
+            type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"
+        ></script>
+
+        <script type="text/javascript" src="../src/sCaptcha.js"></script>
+
+        <style>
+            body {
+                background: #f1f3f4;
+            }
+        </style>
+    </head>
+    <body>
+      <script>
+
+        const verified = () => {
+          console.log("DONE!")
+        }
+
+        new sCaptcha().generateCaptcha({
+          cb: verified
+        });
+      </script>
+    </body>
 </html>
